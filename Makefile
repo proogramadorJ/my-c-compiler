@@ -1,4 +1,4 @@
-OBJECTS= ./build/compiler.o ./build/compiler_process.o
+OBJECTS= ./build/compiler.o ./build/compiler_process.o ./build/helpers/buffer.o
 INCLUDES= -I./
 
 all: ${OBJECTS}
@@ -9,6 +9,9 @@ all: ${OBJECTS}
 
 ./build/compiler_process.o: ./compiler_process.cpp
 		g++ ./compiler_process.cpp ${INCLUDES} -o ./build/compiler_process.o -g -c 
+
+./build/helpers/buffer.o: ./helpers/buffer.c
+		gcc ./helpers/buffer.c ${INCLUDES} -o ./build/helpers/buffer.o -g -c 
 
 clean:
 		rm main
